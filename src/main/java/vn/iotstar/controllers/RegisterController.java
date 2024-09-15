@@ -14,7 +14,7 @@ import vn.iotstar.services.impl.UserServiceImpl;
 
 @WebServlet(urlPatterns = "/register")
 public class RegisterController extends HttpServlet {
-
+	IUserService service = new UserServiceImpl();
 	/**
 	 * 
 	 */
@@ -47,14 +47,14 @@ public class RegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+
+		String fullname = req.getParameter("fullname");
+		String email = req.getParameter("email");
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		String email = req.getParameter("email");
-		String fullname = req.getParameter("fullname");
 		String phone = req.getParameter("phone");
-		IUserService service = new UserServiceImpl();
-		String alertMsg = "";
 
+		String alertMsg = "";
 		if (service.checkExistEmail(email)) {
 			alertMsg = "Email đã tồn tại!";
 			req.setAttribute("alert", alertMsg);
@@ -68,7 +68,7 @@ public class RegisterController extends HttpServlet {
 			return;
 		}
 
-		boolean isSuccess = service.register(email, username, fullname, password, phone);
+		boolean isSuccess = service.register(username, password, fullname, email, phone);
 		if (isSuccess) {
 			// SendMail sm = new SendMail();
 			// sm.sendMail(email, "Shopping.iotstar.vn", "Welcome to Shopping. Please Login

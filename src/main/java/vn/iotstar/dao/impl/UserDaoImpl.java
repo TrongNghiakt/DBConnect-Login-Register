@@ -19,17 +19,18 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public void insert(User user) {
-		String sql = "INSERT INTO Users(email,username,fullname,password,images,roleid,phone,createdate) VALUES (?,?,?,?,?,?,?,?)";
+		System.out.println(user);
+		String sql = "INSERT INTO Users(username,password,images,fullname,email,phone,roleid,createdate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
 			conn = new DBConnectMySQL().getDatabaseConnection();
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, user.getEmail());
-			ps.setString(2, user.getUserName());
-			ps.setString(3, user.getFullName());
-			ps.setString(4, user.getPassWord());
-			ps.setString(5, user.getImages());
-			ps.setInt(6, user.getRoleid());
-			ps.setString(7, user.getPhone());
+			ps.setString(1, user.getUserName());
+			ps.setString(2, user.getPassWord());
+			ps.setString(3, user.getImages());
+			ps.setString(4, user.getFullName());
+			ps.setString(5, user.getEmail());
+			ps.setString(6, user.getPhone());
+			ps.setInt(7, user.getRoleid());
 			ps.setDate(8, (Date) user.getCreatedDate());
 			ps.executeUpdate();
 		} catch (Exception e) {
@@ -106,9 +107,9 @@ public class UserDaoImpl implements IUserDao {
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				list.add(new User(rs.getInt("id"), rs.getString("email"), rs.getString("username"),
-						rs.getString("fullname"), rs.getString("password"), rs.getString("images"), rs.getInt("roleid"),
-						rs.getString("phone"), rs.getDate("createdate")));
+				list.add(new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"),
+						rs.getString("images"), rs.getString("fullname"), rs.getString("email"), rs.getString("phone"),
+						rs.getInt("roleid"), rs.getDate("createdate")));
 			}
 			return list;
 
@@ -131,13 +132,13 @@ public class UserDaoImpl implements IUserDao {
 			while (rs.next()) {
 				User user = new User();
 				user.setId(rs.getInt("id"));
-				user.setEmail(rs.getString("email"));
 				user.setUserName(rs.getString("username"));
-				user.setFullName(rs.getString("fullname"));
 				user.setPassWord(rs.getString("password"));
 				user.setImages(rs.getString("images"));
-				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
+				user.setFullName(rs.getString("fullname"));
+				user.setEmail(rs.getString("email"));
 				user.setPhone(rs.getString("phone"));
+				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
 				user.setCreatedDate(rs.getDate("createdate"));
 
 				return user;
@@ -161,13 +162,13 @@ public class UserDaoImpl implements IUserDao {
 			while (rs.next()) {
 				User user = new User();
 				user.setId(rs.getInt("id"));
-				user.setEmail(rs.getString("email"));
 				user.setUserName(rs.getString("username"));
-				user.setFullName(rs.getString("fullname"));
 				user.setPassWord(rs.getString("password"));
 				user.setImages(rs.getString("images"));
-				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
+				user.setFullName(rs.getString("fullname"));
+				user.setEmail(rs.getString("email"));
 				user.setPhone(rs.getString("phone"));
+				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
 				user.setCreatedDate(rs.getDate("createdate"));
 
 				return user;
@@ -182,11 +183,12 @@ public class UserDaoImpl implements IUserDao {
 	public static void main(String[] args) {
 		try {
 			IUserDao userDao = new UserDaoImpl();
-//			User users = new User("nghia1@gmail.com", "nghia3", "nguyen", "1", null, 3, null, null);
-//			userDao.insert(users);
+			User users = new User("trongnghia", "1", null, "Trong Nghia", "nghia@gmail.com", null, 3, null);
+			userDao.insert(users);
 			System.out.println(userDao.findAll());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 }

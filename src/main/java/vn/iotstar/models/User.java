@@ -11,49 +11,49 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", userName=" + userName + ", fullName=" + fullName
-				+ ", passWord=" + passWord + ", images=" + images + ", roleid=" + roleid + ", phone=" + phone
+		return "User [id=" + id + ", userName=" + userName + ", passWord=" + passWord + ", images=" + images
+				+ ", fullName=" + fullName + ", email=" + email + ", phone=" + phone + ", roleid=" + roleid
 				+ ", createdDate=" + createdDate + "]";
 	}
 
 	private int id;
-	private String email;
 	private String userName;
-	private String fullName;
 	private String passWord;
 	private String images;
-	private int roleid;
+	private String fullName;
+	private String email;
 	private String phone;
+	private int roleid;
 	private Date createdDate;
 
 	public User() {
 		super();
 	}
 
-	public User(String email, String userName, String fullName, String passWord, String images, int roleid,
-			String phone, Date createdDate) {
+	public User(String userName, String passWord, String images, String fullName, String email, String phone,
+			int roleid, Date createdDate) {
 		super();
-		this.email = email;
 		this.userName = userName;
-		this.fullName = fullName;
 		this.passWord = passWord;
 		this.images = images;
-		this.roleid = roleid;
+		this.fullName = fullName;
+		this.email = email;
 		this.phone = phone;
+		this.roleid = roleid;
 		this.createdDate = createdDate;
 	}
 
-	public User(int id, String email, String userName, String fullName, String passWord, String images, int roleid,
-			String phone, Date createdDate) {
+	public User(int id, String userName, String passWord, String images, String fullName, String email, String phone,
+			int roleid, Date createdDate) {
 		super();
 		this.id = id;
-		this.email = email;
 		this.userName = userName;
-		this.fullName = fullName;
 		this.passWord = passWord;
 		this.images = images;
-		this.roleid = roleid;
+		this.fullName = fullName;
+		this.email = email;
 		this.phone = phone;
+		this.roleid = roleid;
 		this.createdDate = createdDate;
 	}
 

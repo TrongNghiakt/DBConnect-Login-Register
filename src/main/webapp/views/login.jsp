@@ -11,7 +11,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Sign in</title>
-
+<script>
+function redirectToLogin() { window.location.href =
+	"/ltweb/forgot"; }
+</script>
 <!-- Font Icon -->
 <link rel="stylesheet"
 	href="fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -47,14 +50,17 @@
 			
 		</section>
 		<section>
-			<div class="container" style="background-color: #f1f1f1">
+			<div class="container" >
 			<button  id = "sign-up-button" type="button" class="cancelbtn">
-				<a  style = "text-decoration: none" color = "black">Sign up </a> 
+				<a>Sign up </a> 
 			</button>
-				<span class="psw">Forgot <a href="#">password?</a></span>
+			</br>
 			</div>
 		</section>
 	</form>
+	<button  class="psw" value="forgot" onclick="redirectToLogin()">
+				<a>Forgot password </a> 
+			</button>
 	 <script>
         // Lắng nghe sự kiện click trên nút sign up
         document.getElementById("sign-up-button").addEventListener("click", function() {

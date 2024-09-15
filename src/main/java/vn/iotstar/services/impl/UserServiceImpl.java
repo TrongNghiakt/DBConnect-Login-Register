@@ -30,13 +30,13 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public boolean register(String email, String password, String username, String fullname, String phone) {
+	public boolean register(String username, String password, String fullname, String email, String phone) {
 		if (userDao.checkExistUsername(username)) {
 			return false;
 		}
 		long millis = System.currentTimeMillis();
 		java.sql.Date date = new java.sql.Date(millis);
-		userDao.insert(new User(email, username, fullname, password, null, 3, phone, date));
+		userDao.insert(new User(username, password, null, fullname, email, phone, 3, date));
 		return true;
 
 	}

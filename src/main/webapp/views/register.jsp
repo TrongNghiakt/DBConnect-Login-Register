@@ -10,6 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Sign Up</title>
+<script>
+function redirectToLogin() { window.location.href =
+	"/ltweb/login"; }
+</script>
 
 <!-- Font Icon -->
 <link rel="stylesheet"
@@ -26,17 +30,32 @@
 			<div class="container">
 				<div class="signup-content">
 					<div class="signup-form">
-					<form action="register" method="post" class="register-form" id="register-form">
-						<h2 class="form-title">Sign up</h2>
-						
-						
-						<c:if test="${alert !=null}">
+					<c:if test="${alert !=null}">
 							<h3 class="alert alertdanger">${alert}</h3>
 						</c:if>
+					<form action="/ltweb/register" method="post" class="register-form" id="register-form">
+						<h2 class="form-title">Sign up</h2>
+						
 							<div class="form-group">
-								<label for="name"> <b>Full Name: </b><i
+								<label for="username"> <b>Username: </b><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="fullname" id="username"
+									type="text" name="username" id="username"
+									placeholder="Your Username" />
+							</div>
+							<div class="form-group">
+								<label for="password"><b>Password: </b><i
+									class="zmdi zmdi-lock"></i></label> <input type="password"
+									name="password" id="password" placeholder="Password" />
+							</div>
+							<div class="form-group">
+								<label for="password"><b>Repeat Password: </b><i
+									class="zmdi zmdi-lock-outline"></i></label> <input type="password"
+									name="password" id="re_pass" placeholder="Repeat your password" />
+							</div>
+							<div class="form-group">
+								<label for="fullname"> <b>Full Name: </b><i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" name="fullname" id="fullname"
 									placeholder="Your Name" />
 							</div>
 							<div class="form-group">
@@ -45,23 +64,7 @@
 									id="email" placeholder="Your Email" />
 							</div>
 							<div class="form-group">
-								<label for="username"> <b>Username: </b><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="username" id="username"
-									placeholder="Your Username" />
-							</div>
-							<div class="form-group">
-								<label for="pass"><b>Password: </b><i
-									class="zmdi zmdi-lock"></i></label> <input type="password"
-									name="password" id="password" placeholder="Password" />
-							</div>
-							<div class="form-group">
-								<label for="re-pass"><b>Repeat Password: </b><i
-									class="zmdi zmdi-lock-outline"></i></label> <input type="password"
-									name="password" id="re_pass" placeholder="Repeat your password" />
-							</div>
-							<div class="form-group">
-								<label for="contact"><b>Phone: </b><i
+								<label for="phone"><b>Phone: </b><i
 									class="zmdi zmdi-lock-outline"></i></label> <input type="text"
 									name="phone" id="contact" placeholder="Contact no" />
 							</div>
@@ -77,8 +80,7 @@
 								<input type="submit" name="register" id="signup"
 									class="form-submit" value="Register" />
 							</div>
-							<a href="login.jsp" class="signup-image-link">I am already
-							member</a>
+							<input type="button" value="Login" onclick="redirectToLogin()">
 						</form>
 					</div>
 					
