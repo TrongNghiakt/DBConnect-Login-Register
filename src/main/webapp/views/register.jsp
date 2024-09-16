@@ -38,30 +38,30 @@ function redirectToLogin() { window.location.href =
 						
 							<div class="form-group">
 								<label for="username"> <b>Username: </b><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									class="zmdi zmdi-account material-icons-name" ></i></label> <input
 									type="text" name="username" id="username"
-									placeholder="Your Username" />
+									placeholder="Your Username" required />
 							</div>
 							<div class="form-group">
 								<label for="password"><b>Password: </b><i
 									class="zmdi zmdi-lock"></i></label> <input type="password"
-									name="password" id="password" placeholder="Password" />
+									name="password" id="password" placeholder="Password" required />
 							</div>
 							<div class="form-group">
 								<label for="password"><b>Repeat Password: </b><i
 									class="zmdi zmdi-lock-outline"></i></label> <input type="password"
-									name="password" id="re_pass" placeholder="Repeat your password" />
+									name="password" id="re_pass" placeholder="Repeat your password" required />
 							</div>
 							<div class="form-group">
 								<label for="fullname"> <b>Full Name: </b><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="fullname" id="fullname"
-									placeholder="Your Name" />
+									placeholder="Your Name" required/>
 							</div>
 							<div class="form-group">
 								<label for="email"><b>Email: </b><i
 									class="zmdi zmdi-email"></i></label> <input type="email" name="email"
-									id="email" placeholder="Your Email" />
+									id="email" placeholder="Your Email" required/>
 							</div>
 							<div class="form-group">
 								<label for="phone"><b>Phone: </b><i

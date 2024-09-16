@@ -38,8 +38,8 @@ function redirectToLogin() { window.location.href =
 		</section>
 		<section>
 			<input type="text" placeholder="Tài khoản" name="username"
-				class="form-control"> <input type="text"
-				placeholder="Mật khẩu" name="password" class="form-control">
+				class="form-control"required> <input type="password"
+				placeholder="Mật khẩu" name="password" class="form-control" required>
 		</section>
 
 		<section>

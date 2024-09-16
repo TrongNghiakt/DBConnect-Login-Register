@@ -191,4 +191,72 @@ public class UserDaoImpl implements IUserDao {
 		}
 	}
 
+	@Override
+	public boolean verifyOldPass(String username, String email, String oldpassword) {
+		boolean duplicate = false;
+		String sql = "select * from users where username = ? and password = ? and email = ?";
+		try {
+			conn = new DBConnectMySQL().getDatabaseConnection();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ps.setString(2, oldpassword);
+			ps.setString(3, email);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				duplicate = true;
+			}
+			return duplicate;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return duplicate;
+	}
+
+	@Override
+	public boolean updatePassword(String username, String newPassword) {
+		boolean isUpdated = false;
+		String selectSql = "SELECT id FROM users WHERE username = ?";
+		String updateSql = "UPDATE users SET password = ? WHERE username = ?";
+
+		try {
+			conn = new DBConnectMySQL().getDatabaseConnection();
+
+			// Step 1: Check if the user exists by username
+			ps = conn.prepareStatement(selectSql);
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				// User exists, proceed with updating password
+				int userId = rs.getInt("id");
+
+				// Step 2: Update the password
+				ps = conn.prepareStatement(updateSql);
+				ps.setString(1, newPassword); // Use password hashing in production
+				ps.setString(2, username);
+
+				int rowsUpdated = ps.executeUpdate();
+				if (rowsUpdated > 0) {
+					isUpdated = true; // Password updated successfully
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (ps != null)
+					ps.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		return isUpdated;
+	}
+
 }

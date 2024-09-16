@@ -1,27 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Forgot Password</title>
 </head>
 <body>
-	<form action="forget" method="POST">
-	<label for="username">Email:</label>
-    <input type="password" name="email" required><br>
-	
-    <label for="oldPassword">Old password:</label>
-    <input type="password" name="oldpass" required><br>
+	<c:if test="${alert !=null}">
+		<h3 class="alert alertdanger">${alert}</h3>
+	</c:if>
+	<form action="/ltweb/forgot" method="POST">
+		<h1>Quên mật khẩu</h1>
+		<br>
 
-    <label for="newPassword">New password:</label>
-    <input type="password" name="newpass" required><br>
+		<!-- Email Field -->
+		<label for="email">Email:</label> <input type="email" name="email" required><br>
 
-    <label for="confirmPassword">Confirm New Password:</label>
-    <input type="password" name="confirmpass" required><br>
+		<!-- Username Field -->
+		<label for="username">User name:</label> <input type="text"
+			name="username" required><br>
 
-    <input type="submit" value="Change Password">
-</form>
+		<!-- Old Password Field -->
+		<label for="oldPassword">Old password:</label> <input type="password"
+			name="oldpass" required><br>
 
+		<!-- New Password Field -->
+		<label for="newPassword">New password:</label> <input type="password"
+			name="newpass" required><br>
+
+		<!-- Confirm New Password Field -->
+		<label for="confirmPassword">Confirm New Password:</label> <input
+			type="password" name="confirmpass" required><br> <input
+			type="submit" value="Change Password">
+	</form>
 </body>
 </html>
