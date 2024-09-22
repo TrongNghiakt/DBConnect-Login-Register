@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +11,15 @@
 	<c:if test="${alert !=null}">
 		<h3 class="alert alertdanger">${alert}</h3>
 	</c:if>
+
+
 	<form action="/ltweb/forgot" method="POST">
 		<h1>Quên mật khẩu</h1>
 		<br>
 
 		<!-- Email Field -->
-		<label for="email">Email:</label> <input type="email" name="email" required><br>
+		<label for="email">Email:</label> <input type="email" name="email"
+			required><br>
 
 		<!-- Username Field -->
 		<label for="username">User name:</label> <input type="text"

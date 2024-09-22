@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri = "jakarta.tags.core" %>
-<%@ taglib prefix="fmt" uri = "jakarta.tags.fmt" %>
-<%@ taglib prefix="fn" uri = "jakarta.tags.functions" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,17 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Sign Up</title>
-<script>
-function redirectToLogin() { window.location.href =
-	"/ltweb/login"; }
-</script>
 
-<!-- Font Icon -->
-<link rel="stylesheet"
-	href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-<!-- Main css -->
-<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -30,15 +20,16 @@ function redirectToLogin() { window.location.href =
 			<div class="container">
 				<div class="signup-content">
 					<div class="signup-form">
-					<c:if test="${alert !=null}">
+						<c:if test="${alert !=null}">
 							<h3 class="alert alertdanger">${alert}</h3>
 						</c:if>
-					<form action="/ltweb/register" method="post" class="register-form" id="register-form">
-						<h2 class="form-title">Sign up</h2>
-						
+						<form action="/ltweb/register" method="post" class="register-form"
+							id="register-form">
+							<h2 class="form-title">Sign up</h2>
+
 							<div class="form-group">
 								<label for="username"> <b>Username: </b><i
-									class="zmdi zmdi-account material-icons-name" ></i></label> <input
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="username" id="username"
 									placeholder="Your Username" required />
 							</div>
@@ -50,18 +41,19 @@ function redirectToLogin() { window.location.href =
 							<div class="form-group">
 								<label for="password"><b>Repeat Password: </b><i
 									class="zmdi zmdi-lock-outline"></i></label> <input type="password"
-									name="password" id="re_pass" placeholder="Repeat your password" required />
+									name="password" id="re_pass" placeholder="Repeat your password"
+									required />
 							</div>
 							<div class="form-group">
 								<label for="fullname"> <b>Full Name: </b><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="fullname" id="fullname"
-									placeholder="Your Name" required/>
+									placeholder="Your Name" required />
 							</div>
 							<div class="form-group">
 								<label for="email"><b>Email: </b><i
 									class="zmdi zmdi-email"></i></label> <input type="email" name="email"
-									id="email" placeholder="Your Email" required/>
+									id="email" placeholder="Your Email" required />
 							</div>
 							<div class="form-group">
 								<label for="phone"><b>Phone: </b><i
@@ -80,28 +72,23 @@ function redirectToLogin() { window.location.href =
 								<input type="submit" name="register" id="signup"
 									class="form-submit" value="Register" />
 							</div>
-							<input type="button" value="Login" onclick="redirectToLogin()">
+
+							<input type="button" name="login" id="login" value="Login" />
 						</form>
+						<script>
+							document
+									.getElementById("login")
+									.addEventListener(
+											"click",
+											function() {
+												window.location.href = "/ltweb/views/login.jsp"; 
+											});
+						</script>
+
 					</div>
-					
-					<div class="signup-image">
-						<figure>
-							<img src="../Images/signup.jpg" alt="sign up image">
-						</figure>
-					</div>
-					
 				</div>
 			</div>
 		</section>
-
-
 	</div>
-	<!-- JS -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="js/main.js"></script>
-
-
-
 </body>
-<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
