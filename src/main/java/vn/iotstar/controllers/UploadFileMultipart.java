@@ -39,7 +39,8 @@ public class UploadFileMultipart extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
 		try {
-			String name = req.getParameter("name");
+			String fullname = req.getParameter("fullname");
+			String phone = req.getParameter("phone");
 			Part part = req.getPart("image");
 			String realPath = req.getServletContext().getRealPath("/uploads");
 			String filename = Paths.get(part.getSubmittedFileName()).getFileName().toString();
@@ -51,7 +52,7 @@ public class UploadFileMultipart extends HttpServlet {
 			part.write(realPath + "/" + filename);
 			PrintWriter out = resp.getWriter();
 			try {
-				out.print("<h2> Tên: " + name + "</h2>");
+				out.print("<h2> Full name: " + fullname + "</h2>");
 				out.print("<img src='uploads/" + filename + "'>");
 			} catch (Exception e) {
 

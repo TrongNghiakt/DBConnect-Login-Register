@@ -152,7 +152,7 @@ public class UserDaoImpl implements IUserDao {
 
 	@Override
 	public User findByUserName(String username) {
-		String sql = "Select * from users where email = ?";
+		String sql = "Select * from users where username = ?";
 
 		try {
 			conn = new DBConnectMySQL().getDatabaseConnection();

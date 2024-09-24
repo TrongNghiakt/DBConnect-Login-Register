@@ -40,7 +40,7 @@ public class RegisterController extends HttpServlet {
 				}
 			}
 		}
-		req.getRequestDispatcher("/login.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
 	}
 
 	@Override
