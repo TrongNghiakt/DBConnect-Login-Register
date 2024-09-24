@@ -53,6 +53,7 @@ public class UploadFileMultipart extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			try {
 				out.print("<h2> Full name: " + fullname + "</h2>");
+				out.print("<h2> Phone: " + phone + "</h2>");
 				out.print("<img src='uploads/" + filename + "'>");
 			} catch (Exception e) {
 
