@@ -12,7 +12,7 @@ public interface IUserDao {
 
 	User findById(int id);
 
-	User findByUserName(String email);
+	User findByUserName(String username);
 
 	boolean checkExistEmail(String email);
 
