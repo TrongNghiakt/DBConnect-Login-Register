@@ -5,8 +5,6 @@
 <%@ taglib prefix="fn" uri="jakarta.tags.functions"%>
 <c:url value="/" var="URL"></c:url>
 
-
-!DOCTYPE html>
 <html lang="en">
 
 <!-- Head BEGIN -->
@@ -204,7 +202,7 @@
 	</div>
 
 
-	<!-- BEGIN PRE-FOOTER -->
+	<%-- <!-- BEGIN PRE-FOOTER -->
 	<div class="pre-footer">
 		<div class="container">
 			<div class="row">
@@ -293,19 +291,19 @@
 			</div>
 		</div>
 	</div>
-	<!-- END PRE-FOOTER -->
+	<!-- END PRE-FOOTER --> --%>
 
-	<!-- BEGIN FOOTER -->
+	<!-- <!-- BEGIN FOOTER
 	<div class="footer">
 		<div class="container">
 			<div class="row">
-				<!-- BEGIN COPYRIGHT -->
+				BEGIN COPYRIGHT
 				<div class="col-md-6 col-sm-6 padding-top-10">
 					2014 © Metronic Shop UI. ALL Rights Reserved. <a href="#">Privacy
 						Policy</a> | <a href="#">Terms of Service</a>
 				</div>
-				<!-- END COPYRIGHT -->
-				<!-- BEGIN PAYMENTS -->
+				END COPYRIGHT
+				BEGIN PAYMENTS
 				<div class="col-md-6 col-sm-6">
 					<ul class="social-footer list-unstyled list-inline pull-right">
 						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -319,11 +317,11 @@
 						<li><a href="#"><i class="fa fa-dropbox"></i></a></li>
 					</ul>
 				</div>
-				<!-- END PAYMENTS -->
+				END PAYMENTS
 			</div>
 		</div>
 	</div>
-	<!-- END FOOTER -->
+	END FOOTER --> -->
 
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) -->
