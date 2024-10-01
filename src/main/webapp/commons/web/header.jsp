@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-
+<%@ include file = "/commons/taglib.jsp" %>
 
 
 <!-- BEGIN TOP BAR -->
@@ -46,14 +44,7 @@
                         <li><a href="shop-checkout.html">Checkout</a></li>
                         <li> 
                         
-                        	<%-- <c:if test ="${sessionScope.account == null}">
-                        		<a href = "${pageContext.request.contextPath }/login" >Login</a>
-                        			|<a href = "${pageContext.request.contextPath }/register">Register</a>
-                        	</c:if>
-                        	<c:if test="${sessionScope.account != null}">
-                        		<a href= "${pageContext.request.contextPath }/login">${sessionScope.account.fullName}</a>
-                        			|<a href = "${pageContext.request.contextPath }/logout">Logout</a>	
-                        	</c:if> --%>
+                 
                         			
                         	<c:choose>	
                         	<c:when test ="${sessionScope.account == null}">

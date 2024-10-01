@@ -23,7 +23,6 @@ public class CategoryServiceImpl implements ICategoryService {
 	@Override
 	public void insert(CategoryModel category) {
 		cateDao.insert(category);
-
 	}
 
 	@Override
