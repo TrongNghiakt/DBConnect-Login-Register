@@ -3,6 +3,10 @@ package vn.iotstar.models;
 import java.io.Serializable;
 
 public class CategoryModel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4238673295544432448L;
 	private int categoryid;
 	private String categoryname;
 	private String images;
@@ -10,6 +14,14 @@ public class CategoryModel implements Serializable {
 
 	public CategoryModel() {
 		super();
+	}
+
+	public CategoryModel(int categoryid, String categoryname, String images, int status) {
+		super();
+		this.categoryid = categoryid;
+		this.categoryname = categoryname;
+		this.images = images;
+		this.status = status;
 	}
 
 	public int getCategoryid() {

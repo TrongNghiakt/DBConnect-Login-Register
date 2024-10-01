@@ -12,7 +12,6 @@
 <body>
 
 	Trang chủ của Admin
-	<form action="<%= request.getContextPath() %>/logout" method="get">
-    <button type="submit">Logout</button>
+
 </body>
 </html>
